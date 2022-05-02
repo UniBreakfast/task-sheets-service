@@ -1,12 +1,25 @@
 {
   "name": "task-sheets-service",
   "version": "1.0.0",
-  "description": "",
+  "description": "Personal task service with Google Spreadsheets Storage",
   "main": "index.js",
   "scripts": {
-    "start": "node index"
+    "start": "node index",
+    "browser": "watchify index.js -o bundle.js"
   },
-  "keywords": [],
+  "keywords": ["spreadsheets", "task-list"],
   "author": "Mykhailo Ninin Velykhoselskyi aka UniBreakfast",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "google-spreadsheet": "^3.2.0"
+  },
+    "repository": {
+    "type": "git",
+    "url": "git+https://github.com/UniBreakfast/task-sheets-service.git"
+  },
+  "bugs": {
+    "url": "https://github.com/UniBreakfast/task-sheets-service/issues"
+  },
+  "homepage": "https://github.com/UniBreakfast/task-sheets-service#readme",
+  "dev_help": "https://theoephraim.github.io/node-google-spreadsheet/#/?id=working-with-cells"
 }
