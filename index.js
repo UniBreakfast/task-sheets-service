@@ -1,7 +1,5 @@
 globalThis.expose = expose
 
-process.on('uncaughtException', console.log)
-
 const connectToTaskSheet = require('./sheetService')
 const startServer = require('./server')
 

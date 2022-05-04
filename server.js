@@ -1,11 +1,11 @@
 module.exports = startServer
 
-const { createServer } = require('http')
+const { createServer } = require('httpity')
+const { createReadStream } = require('fs')
 const port = process.env.PORT || 3000
-const apiHandlers = {GET_tasks}
+const apiHandlers = { GET_tasks }
 
 let service = {}
-
 
 function startServer(sheetService) {
   const server = createServer(handleRequest)
@@ -23,9 +23,17 @@ async function handleRequest(request, response) {
     handleAPI(endpoint, request, response)
 
   } else {
-    response.statusCode = 404
-    response.end(`404 ${method} ${url}    File/path not found`)
+    provideFile(url, response)
   }
+}
+
+async function provideFile(filePath, response) {
+  if (filePath == '/') filePath = '/index.html'
+
+  response.on('error', err => {
+    response.send(`<pre>404 ${filePath}    File/path not found</pre>`, 404, 'html')
+  }).path = 'public' + filePath
+
 }
 
 async function handleAPI(endpoint, request, response) {
@@ -43,10 +51,9 @@ async function handleAPI(endpoint, request, response) {
 async function GET_tasks(request, response) {
   const taskData = await service.getAllTaskData()
 
-  expose({taskData})
+  expose({ taskData })
 
-  response.setHeader('content-type', 'application/json')
-  response.end(JSON.stringify(taskData))
+  response.send(taskData, 'json')
 }
 
 function reportServerStart() {

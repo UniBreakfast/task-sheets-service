@@ -7,13 +7,17 @@
     "start": "node index",
     "browser": "watchify index.js -o bundle.js"
   },
-  "keywords": ["spreadsheets", "task-list"],
+  "keywords": [
+    "spreadsheets",
+    "task-list"
+  ],
   "author": "Mykhailo Ninin Velykhoselskyi aka UniBreakfast",
   "license": "ISC",
   "dependencies": {
-    "google-spreadsheet": "^3.2.0"
+    "google-spreadsheet": "^3.2.0",
+    "httpity": "^1.0.5"
   },
-    "repository": {
+  "repository": {
     "type": "git",
     "url": "git+https://github.com/UniBreakfast/task-sheets-service.git"
   },
