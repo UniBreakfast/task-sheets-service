@@ -18,7 +18,7 @@
     <ul id="taskList">
       <li class="task">
         <div class="task-id-place">
-          <p class="task-id">1</p>
+          <p class="task-id">id</p>
         </div>
         <div class="task-name-place">
           <p class="task-name">task text</p>
@@ -27,15 +27,28 @@
 
       <li class="task">
         <div class="task-id-place">
-          <p class="task-id">2</p>
+          <p class="task-id">id</p>
         </div>
         <div class="task-name-place">
-          <p class="task-name">another task text</p>
+          <p class="task-name">task text</p>
         </div>
       </li>
     </ul>
 
-    <button id="addTaskBtn">+</button>
+    <button id="addTaskBtn" onclick="toggleAddTaskModal()">+</button>
+  </div>
+
+  <div id="addTaskModal" hidden>
+    <div class="content">
+      <form id="addTaskForm" action="js:">
+        <label>
+          <b>task</b>
+          <textarea name="task"></textarea>
+        </label>
+
+        <button>add this task</button>
+      </form>
+    </div>
   </div>
 </body>
 

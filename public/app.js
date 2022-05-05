@@ -1,6 +1,14 @@
 import api from './api.js'
 
-api.getTasks().then(showTasks)
+if (location.hostname != '127.0.0.1') api.getTasks().then(showTasks)
+
+addTaskBtn.onclick = toggleAddTaskModal
+
+addTaskModal.onmousedown = ({target}) => {
+  if (target == addTaskModal) toggleAddTaskModal()
+}
+
+addTaskForm.onsubmit = submitNewTask
 
 function showTasks(allTaskData) {
   taskList.innerHTML = allTaskData.values.map(taskValues => {
@@ -17,4 +25,12 @@ function showTasks(allTaskData) {
       </li>
     `
   }).join('')
+}
+
+function toggleAddTaskModal() {
+  addTaskModal.hidden = !addTaskModal.hidden
+}
+
+function submitNewTask() {
+
 }

@@ -1,4 +1,4 @@
-body {
+body, button, input, textarea, select {
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   font-size: 18px;
 }
@@ -15,7 +15,7 @@ body {
   border-radius: 50%;
   font-size: 60px;
   text-align: center;
-  line-height: 0.8;
+  line-height: 0;
   position: absolute;
   right: 60px;
   bottom: 60px;
@@ -26,4 +26,55 @@ body {
 #addTaskBtn:active {
   box-shadow: inset -2px -2px 6px 3px #0007, 1px 2px 4px 2px #000b;
   transform: translate(1px, 1px);
+}
+
+#addTaskModal {
+  position: fixed;
+  inset: 0;
+  transition: 400ms;
+  display: flex;
+}
+
+#addTaskModal[hidden] {
+  transform: translateX(100%);
+}
+
+#addTaskForm {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+}
+
+#addTaskForm label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+#addTaskForm label>:last-child {
+  flex-grow: 1;
+}
+
+#addTaskForm textarea {
+  padding: 10px 20px;
+}
+
+#addTaskForm button {
+  border-radius: 10px;
+  border: none;
+  box-shadow: inset -2px -2px 4px 2px #0007, 1px 3px 5px 2px #000b;
+  padding: 7px 15px;
+}
+
+.content {
+  margin: auto;
+  background: white;
+  width: 400px;
+  height: 300px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: inset -2px -2px 4px 2px #0007, 20px 30px 80px 5px #000b;
+  padding: 20px 40px;
+  box-sizing: border-box;
 }
