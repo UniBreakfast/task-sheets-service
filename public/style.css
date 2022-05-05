@@ -7,3 +7,22 @@ body {
   display: flex;
   gap: 10px;
 }
+
+#addTaskBtn {
+  width: 50px;
+  height: 50px;
+  border: none;
+  border-radius: 50%;
+  font-size: 60px;
+  text-align: center;
+  line-height: 0.8;
+  position: absolute;
+  right: 60px;
+  bottom: 60px;
+  box-shadow: inset -2px -2px 6px 3px #0007, 2px 4px 15px 9px #000b;
+  transition: 400ms;
+}
+
+#addTaskBtn:active {
+  box-shadow: inset -2px -2px 6px 3px #0007, 1px 2px 4px 2px #000b;
+}
